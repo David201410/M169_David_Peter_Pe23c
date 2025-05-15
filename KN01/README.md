@@ -19,3 +19,7 @@ Vieles dieser Challenge wurde bereits in anderen Modulen behandelt. Wie z.B die 
 ---
 
 ### B) SSH Keypair erstellen und konfigurieren 
+
+---
+
+### C) Neues Gitlab Repository erstellen und mit Client verknüpfen
