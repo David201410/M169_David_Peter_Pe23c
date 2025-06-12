@@ -54,7 +54,13 @@ Als es soweit war und ich mich verbinden konnte, habe ich sicher gestellt, dass 
 Herausgefunden habe ich, dass Podman gar nicht läuft, was es aber sollte. Das liegt daran, dass Podman eine sogenannte **Socket-Aktivierung** nutzt. Somit läuft Podman nur, wenn man etwas damit macht. Sei es ein Image aufzusetzen oder etwas anderes. Sobald man einen Befehl eingibt, merkt der Daemon das und startet den Service automatisch.
 
 ## B) OCI-Images, Container und Registry - BASICS
+In dieser Challenge mussten wir mit Docker einen **NGINX** Webserver erstellen und mittels der richtigen "Firewall-Regeln", die Webpage auf unserem Notebook aufrufen.
 
+![image](/images/09_edited_security_group_8080.png)
+
+![image](/images/10_started_nginx_docker.png)
+
+Erst nach Anpassung der Security-Group können wir auf die Webseite zugreifen. Das liegt daran, dass wir der Instanz erlauben müssen, auf sich selbst HTTP einsehen zu können.
 
 ## C) OCI-Images mit Docker - RUN & ADMINISTRATION
 **Schritt 1: Vorbereitungen (Prerequisites)**
@@ -76,6 +82,10 @@ Die Datenbank habe ich bequem über Workbench erstellt:
 
 ```create schema ... ;```
 
+Die Datenbank finden wir ebenfalls im Docker:
+
+![image](/images/12_mariadb_database_pet.png)
+
 Wenn ich jetzt den Container stoppe, lösche und neu erstelle, wird diese Datenbank gelöscht sein. Aus dem Grund lohnt es sich ein Volume zu erstellen, wodurch der Speicher **persistent** wird.
 
 ![image](/images/15_created_volume.png)
@@ -94,4 +104,9 @@ Nun erstellen wir den Container erneut aber hängen das eben erstelle Volume an:
 docker run --detach --name some-mariadb --env MARIADB_ROOT_PASSWORD=my-secret-pw -v mydbstore:/var/lib/mysql -p 3306:3306 mariadb:latest
 ```
 
+Zuerst erstellen wir die Datenbank erneut auf dem Server. Danach löschen wir den Container und erstellen ihn neu mit dem erstellten Volume. Verbinde dich mittels Client wieder auf den Server und siehe da! Die Datenbank ist nachwievor vorhanden.
+
 ## D) OCI-Images mit Docker - BUILD & CUSTOMIZATION
+**Variante 1**
+
+
