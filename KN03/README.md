@@ -121,4 +121,5 @@ Wir verlassen den Container mit **exit**. Damit die Änderungen, wie die install
 docker commit cowsay img/cowsay
 ```
 
+**Variante 2: Automatisierte Image-Erstellung mit einem Dockerfile**
 
