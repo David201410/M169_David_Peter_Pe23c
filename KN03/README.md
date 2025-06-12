@@ -107,6 +107,18 @@ docker run --detach --name some-mariadb --env MARIADB_ROOT_PASSWORD=my-secret-pw
 Zuerst erstellen wir die Datenbank erneut auf dem Server. Danach löschen wir den Container und erstellen ihn neu mit dem erstellten Volume. Verbinde dich mittels Client wieder auf den Server und siehe da! Die Datenbank ist nachwievor vorhanden.
 
 ## D) OCI-Images mit Docker - BUILD & CUSTOMIZATION
-**Variante 1**
+**Variante 1: Manuelle Anpassung und Commit eines Containers**
+
+Die einfachere Variante Images zu aktualisieren und anzupassen ist diese hier. Grundsätzlich starten wir den Container eines bereits vorhandenen Images, führen Updates durch, halten diese im Image fest und löschen den Container.
+
+Zuerst hüpfen wir direkt in den Container, updaten ihn und installieren zwei Pakete namens "cowsay" und "fortune".
+
+![image](/images/17_docker_starten_updaten.png)
+
+Wir verlassen den Container mit **exit**. Damit die Änderungen, wie die installierte Software, dem Image hinzufügen können, müssen wir folgenden Befehl eingeben:
+
+```
+docker commit cowsay img/cowsay
+```
 
 
