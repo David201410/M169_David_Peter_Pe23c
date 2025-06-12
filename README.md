@@ -32,9 +32,8 @@ Umfang und Inhalt stehen Ihnen frei_</mark>
 
 
 ## Quellenverzeichnis
-  * [AI Fragen](./ai.md) 
-  * [1. Quellenbeispiel - GitLab flavored Markdown](https://docs.
-  * [2. Quellenbeispiel - Docker Docs](https://docs.docker.com/) 
+  * [1. Redhat über Container Orchestrierung](https://www.redhat.com/de/topics/containers/what-is-container-orchestration)
+  * [2. Docker Docs](https://docs.docker.com/) 
 
 
 <br>
