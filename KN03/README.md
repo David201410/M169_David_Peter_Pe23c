@@ -109,17 +109,70 @@ Zuerst erstellen wir die Datenbank erneut auf dem Server. Danach löschen wir de
 ## D) OCI-Images mit Docker - BUILD & CUSTOMIZATION
 **Variante 1: Manuelle Anpassung und Commit eines Containers**
 
-Die einfachere Variante Images zu aktualisieren und anzupassen ist diese hier. Grundsätzlich starten wir den Container eines bereits vorhandenen Images, führen Updates durch, halten diese im Image fest und löschen den Container.
+Ein Image manuell anzupassen ist sehr einfach.
 
-Zuerst hüpfen wir direkt in den Container, updaten ihn und installieren zwei Pakete namens "cowsay" und "fortune".
-
+Zuerst starten wir einen Container aus einem bestehenden Image und installieren manuell die beiden Programme "Cowsay" und "Fortune". Natürlich updaten wir vorher unser Paket-Tool.
 ![image](/images/17_docker_starten_updaten.png)
 
-Wir verlassen den Container mit **exit**. Damit die Änderungen, wie die installierte Software, dem Image hinzufügen können, müssen wir folgenden Befehl eingeben:
+Nachdem wir diese Schritte durchgeführt haben, konnten wir die Programme testen:
+![image](/images/18_manual_install_cowsay.png)
 
-```
-docker commit cowsay img/cowsay
-```
+
+Nun können wir den Container verlassen und den bestehenden Container als Image speichern:
+![image](/images/19_checked_image_history.png) 
+
+Mithilfe von ```docker history [IMAGE ID/NAME]``` können wir die Versionierung nachvollziehen.
+
+Wir erstellen also unseren neuen Container aus diesem Image und testen gleich, ob Fortune und Cowsay installiert sind:
+![image](/images/20_check_new_image.png)
+
+So einfach ist es, ein Image von Hand zu updaten, patchen etc. 
 
 **Variante 2: Automatisierte Image-Erstellung mit einem Dockerfile**
 
+Variante Nummer 2 ist ein wenig komplexer, dafür sehr effektiv.
+
+Nun arbeiten wir mit einem **Dockerfile** und eine **index.html** Datei. Die index.html Datei brauchen wir für unseren Webserver und mithilfe des Dockerfiles, wird unser Image erstellt.
+![image](/images/21_variant-2_1.png)
+
+**Dockerfile**
+
+```
+FROM ubuntu
+RUN apt-get update && apt-get install -y cowsay fortune apache2
+COPY index.html /var/www/html
+CMD ["apachectl", "-D", "FOREGROUND"]
+EXPOSE 80
+```
+
+Durch das Dockerfile wird ein Container mit dem Basis-Image **Ubuntu** erstellt und updated. Zusätzlich wird Cowsay, Fortune und Apache2 (Webserver) installiert.
+
+Wir builden das neue Image und nennen es **df/cowsay**. 
+
+Als nächstes lösche ich den Container und starte ihn erneut mit Port 80. Der Befehl lief ohne Fehler durch und die Webseite war erreichbar:
+![image](/images/23_variant-2_3.png)
+
+Ich habe das HTML-File angepasst und das Image neugebaut, sowie den Container gestartet:
+![image](/images/26_variant-2_6.png)
+
+Ebenfalls wurde das Dockerfile angepasst mit dem **ENTRYPOINT:** /usr/games/cowsay.
+
+Das können wir mit dem History Befehl nachvollziehen:
+![image](/images/25_variant-2_5.png)
+
+
+## E) Container Netzwerk - VERTIEFUNG
+In dieser Übung haben wir uns mit Docker Networks auseinandergesetzt. Zur Übung habe ich selbst eins erstellt und analysiert:
+![image](/images/27_network_erstellt_analysiert.png)
+
+In der **Config** sieht man die Subnetzmaske und den Gateway dieses Subnetzes.
+
+Wenn ich einen Server erstelle und in das Netzwerk stelle, sehe ich das mit ```docker inspect pet-mynetwork```:
+![image](/images/28_container_erstellt_mit_network.png)
+
+
+**Befehl um unbenutzte Docker Netzwerke zu löschen:**
+
+```
+docker network prune
+```
