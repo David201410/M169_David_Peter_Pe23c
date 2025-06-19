@@ -9,8 +9,6 @@
 
 ## A) Docker Image aufsetzen, in Registry ablegen und deployen - OCI: BASIC WORKFLOW
 Damit ich mein Image von Lokal ins Repo hochladen kann, muss ich zuerst ein PAT für meinen Github-Account erstellen.
-**PAT-Token:**
-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
 
 Damit kann ich das Docker-Login mit meiner Github Container-Registry verbinden.
 
