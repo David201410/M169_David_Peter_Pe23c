@@ -61,6 +61,15 @@ Nach all diesen Änderungen, habe ich wieder ein Compose Up durchgeführt und da
 
 ## C) Docker Swarm Cluster aufsetzen - SETUP HIGH AVAILABILITY PLATFORM
 
+IP-Adressen Matrix:
+
+|Instanz-Name | IP-Adresse |
+|-------------|------------|
+| M169_Node1 | 172.31.82.247 |
+| M169_Node2 | 172.31.92.199 |
+| M169_Node3 | 172.31.86.132 |
+| M169_Node4 | 172.31.86.243 |
+| M169_Node5 | 172.31.82.152 |
 
 
 ## D) Docker Swarm Imperativ - CONTAINER ORCHESTRATION: ENTRY-LEVEL
