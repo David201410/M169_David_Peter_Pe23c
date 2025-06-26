@@ -59,7 +59,6 @@ Da wir den Publish Port des Webservers angepasst haben, müssen wir ebenfalls di
 Nach all diesen Änderungen, habe ich wieder ein Compose Up durchgeführt und das Endresultat erhalten:
 ![image](/images/43_success.png)
 
-
 ## C) Docker Swarm Cluster aufsetzen - SETUP HIGH AVAILABILITY PLATFORM
 
 
