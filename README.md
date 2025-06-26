@@ -1,15 +1,14 @@
 
-![**Eigenes Titelbild**](./images/titelbild.png) <mark>_(Ergänzen Sie hier ihr eigenes Titelbild - Landscape, max. 1200px. Selber erstellen, im **./images** ablegen und verlinken)_</mark>
+<img src="/images/titelbild.png" alt="Eigenes Titelbild" width="1200"/>
 
 # M169 Repository
 
 [TOC]
 
 ## Einleitung
-
+Willkommen zu meinem Repository für das Modul 169. Hier finden sich alle von mir bearbeiteten Kompetenznachweise in Form kleiner Dokumentationen. Ebenfalls in diesem Repository ersichtlich, ist die Dokumentation und das schlussendliche Produkt der LB2.
 
 ## Kompetenznachweise
-<mark>_Unterverzeichnisse für jeden Kompetenznachweis erstellen und darin wiederum ein README.md und zugehörigen Content_</mark>
 
 - [**KN01**](./KN01/README.md)
 - [**KN02**](./KN02/README.md)

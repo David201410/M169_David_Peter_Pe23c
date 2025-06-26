@@ -42,6 +42,22 @@ Die Änderungen wurden übernommen!
 
 ## B) Docker Compose - Container Orchestrierung mit mehreren Services - CONTAINER MANAGEMENT: ENTRY-LEVEL
 
+Nachdem ich mir das Tutorial von Herrn Calisto angeschaut habe, habe ich die beiden Container zuerst mit ```docker compose up --detach``` zum Laufen gebracht.
+![image](/images/39_webseite_läuft.png)
+
+Danach habe ich gemäss Auftrag Anpaasungen an ein paar Dateien vorgenommen.
+
+Als erstes das Compose File mit dem neuen Port und angepassten Network/Volume Namen:
+![image](/images/40_compose_angepasst.png)
+
+Zusätzlich habe ich mir ein Logo heruntergeladen, welche das FCZ Logo im HTML File ersetzt. Das muss ich im File noch referenzieren:
+![image](/images/41_index-html_angepasst.png)
+
+Da wir den Publish Port des Webservers angepasst haben, müssen wir ebenfalls die Security Group noch anpassen:
+![image](/images/42_security-group.png)
+
+Nach all diesen Änderungen, habe ich wieder ein Compose Up durchgeführt und das Endresultat erhalten:
+![image](/images/43_success.png)
 
 
 ## C) Docker Swarm Cluster aufsetzen - SETUP HIGH AVAILABILITY PLATFORM
