@@ -1,0 +1,12 @@
+services:
+  app:
+    image: ghcr.io/david201410/todolist-davpet:latest
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 80:5000
+    volumes:
+      - todolist.db:/app/db
+volumes:
+  todolist.db:

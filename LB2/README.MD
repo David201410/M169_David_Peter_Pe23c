@@ -14,9 +14,12 @@ Als Hosting-Plattform wird AWS EC2 genutzt: Eine virtuelle Linux-Instanz dient a
 Die Architektur der Lösung ist relativ einfach gehalten:
 
 - **Client (Browser)**: Greift über HTTP/S auf die Webanwendung zu (z.B. via öffentliche IP oder Domain der EC2-Instanz).
-- **Webanwendung (Docker-Container)**: Enthält den Webserver (z.B. Node/Express oder Python/Flask) mit der To-Do-App. Der Container lauscht auf einem Port (z.B. 3000) für HTTP-Anfragen.
-- **Docker-Host (AWS EC2)**: Linux-VM in AWS, auf der Docker Engine installiert ist. Diese Instanz hostet den Container. Sicherheitsgruppen der Instanz sind so    konfiguriert, dass der benötigte Port (z.B. 80 oder 3000) von aussen erreichbar ist.
+- **Webanwendung (Docker-Container)**: Enthält den Webserver mit der To-Do-App. Der Container lauscht auf einem Port (z.B. 5001) für HTTP-Anfragen.
+- **Docker-Host (AWS EC2)**: Linux-VM in AWS, auf der Docker Engine installiert ist. Diese Instanz hostet den Container. Sicherheitsgruppen der Instanz sind so    konfiguriert, dass der benötigte Port (z.B. oder 5001) von aussen erreichbar ist.
 - **Container Registry (ghcr.io)**: Zentrale Registry, in die das Docker-Image der Anwendung hochgeladen wird. Von hier kann die EC2-Instanz (und auch andere Hosts) das Image herunterladen. Zugriff erfordert Authentifizierung mittels eines Tokens.
 - **Optional (falls genügend Zeit Vorhanden)**: Datenpersistenz: Für dieses Projekt speichern wir Daten lokal (im Container-Dateisystem oder in-memory). In einer erweiterten Architektur könnte ein externer Datenbank-Service (z.B. AWS RDS für MySQL/Postgres oder MongoDB Atlas) angebunden werden. Das würde dann per Netzwerk von der Anwendung aus angesprochen und die Zugangsdaten sicher als Umgebungsvariablen im Container hinterlegt.
 
 **Architekturdiagramm**
+
+
+docker run -d -p 5001:5000 -v todolist.db:/app/db ghcr.io/david201410/todolist-davpet:v2
