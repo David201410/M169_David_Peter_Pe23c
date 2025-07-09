@@ -1,12 +1,15 @@
 services:
   app:
     image: ghcr.io/david201410/todolist-davpet:latest
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+    build: .
     ports:
       - 80:5000
     volumes:
       - todolist.db:/app/db
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+
 volumes:
   todolist.db:
+    name: todolist_db

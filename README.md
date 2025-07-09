@@ -18,18 +18,16 @@ Willkommen zu meinem Repository für das Modul 169. Hier finden sich alle von mi
 
 ## LB2 Projekt
 
-- [**./LB2/README.md**](./LB2/README.md) 
-  - TOC 
+- [**LB2**](./LB2/README.md) 
   - Einleitung
   - Service-Beschreibung 
   - Umsetzung 
   - Anwendung 
   - Quellen 
-- [**./LB2/images**](./LB2/images) 
+- [**Bilder zur LB2**](./LB2/images) 
 
 ## Reflexion
-<mark>_Hier halten Sie Ihre Erkenntnisse auf der **metakognitiven Ebene** (recherchieren Sie diesen Begriff) dieses Moduls fest.
-Umfang und Inhalt stehen Ihnen frei_</mark>
+<mark>Ich habe leider nicht alles gegeben was ich könnte. Nichtsdestotrotz war es mir eine Freude an diesem Modul Teil zu haben.</mark>
 
 
 ## Quellenverzeichnis

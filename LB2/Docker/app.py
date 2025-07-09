@@ -7,14 +7,13 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db/db.sqlite'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+db.create_all() 
 
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     task = db.Column(db.String(1000), nullable=False)
     complete = db.Column(db.Boolean) 
     user_id = db.Column(db.Integer)
-
-
 
 @app.route('/')
 def index():
@@ -23,20 +22,20 @@ def index():
     return render_template('base.html', todo_list=todoList)
 
 
-# add a task
+# Task hinzufügen
 @app.route('/add', methods=["POST"])
 def add():
     
-    # get the title of the task
+    # Tasknamen aus dem Formular holen
     title = request.form.get("title")
 
-    # if the title is empty then redirect to the index page
+    # Wenn der Titel leer ist, zurück zur Startseite
     if title == "":
         return redirect(url_for("index"))
-    # create a todo object
+    # Erstelle ein neues Todo-Objekt
     newTask = Todo(task=title, complete=False)
-    
-    # try to add the object to the database
+
+    # Versuche, das Objekt in die Datenbank hinzuzufügen
     try:
         db.session.add(newTask)
         db.session.commit()
@@ -45,11 +44,11 @@ def add():
         return "Es gab ein Problem beim erstellen des Tasks."
 
 
-# delete a task
+# einen task löschen
 @app.route('/delete/<int:todo_id>')
 def delete(todo_id):
 
-    # get the task from the data base
+    # den task in der Datenbank suchen
     task = Todo.query.filter_by(id=todo_id).first()
     
     try:
@@ -60,16 +59,16 @@ def delete(todo_id):
         return "Task kann nicht gelöscht werden."
 
 
-# delete a task
+# task löschen
 @app.route('/update/<int:todo_id>')
 def update(todo_id):
 
-    # get the task from the data base
+    # den task in der Datenbank suchen
     task = Todo.query.filter_by(id=todo_id).first()
     # toggle the complete value
     task.complete = not task.complete
 
-    # try to commit to the database
+    # versuche in die db zu schreiben
     try:
         db.session.commit()
         return redirect(url_for("index"))
