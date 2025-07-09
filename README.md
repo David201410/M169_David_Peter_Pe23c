@@ -27,12 +27,13 @@ Willkommen zu meinem Repository für das Modul 169. Hier finden sich alle von mi
 - [**Bilder zur LB2**](./LB2/images) 
 
 ## Reflexion
-<mark>Ich habe leider nicht alles gegeben was ich könnte. Nichtsdestotrotz war es mir eine Freude an diesem Modul Teil zu haben.</mark>
+<mark>Ich konnte mein Wissen zu der Docker Technologie auf gewisser Art und Weise auffrischen und gleichzeitig verbessern. Leider habe ich nicht alles gegeben was ich kann.</mark>
 
 
 ## Quellenverzeichnis
   * [1. Redhat über Container Orchestrierung](https://www.redhat.com/de/topics/containers/what-is-container-orchestration)
   * [2. Docker Docs](https://docs.docker.com/) 
+  *Quellen der LB2 sind im entsprechenden Dokument zu finden*
 
 
 <br>
