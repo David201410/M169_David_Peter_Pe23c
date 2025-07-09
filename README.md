@@ -18,7 +18,7 @@ Willkommen zu meinem Repository für das Modul 169. Hier finden sich alle von mi
 
 ## LB2 Projekt
 
-- [**LB2**](./LB2/README.md) 
+- [**LB2**](./LB2/README.MD) 
   - Einleitung
   - Service-Beschreibung 
   - Umsetzung 
@@ -33,6 +33,7 @@ Willkommen zu meinem Repository für das Modul 169. Hier finden sich alle von mi
 ## Quellenverzeichnis
   * [1. Redhat über Container Orchestrierung](https://www.redhat.com/de/topics/containers/what-is-container-orchestration)
   * [2. Docker Docs](https://docs.docker.com/) 
+  
   *Quellen der LB2 sind im entsprechenden Dokument zu finden*
 
 
