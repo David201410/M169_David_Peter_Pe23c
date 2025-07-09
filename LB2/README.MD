@@ -201,6 +201,7 @@ Es funktioniert!
 ![iamge](/LB2/images/04_docker_logs.png)
 
 Und das Log nach Eingaben:
+
 ![image](/LB2/images/05_docker_logs_after.png)
 
 
